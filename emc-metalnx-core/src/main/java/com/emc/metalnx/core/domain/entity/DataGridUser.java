@@ -24,26 +24,16 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 
 	private boolean enabled;
 
-	private String firstName;
-	private String lastName;
-	private String email;
 	private String locale = "en";
 
 	private boolean forceFileOverwriting = false;
 
 	private String userType;
 
-	private String organizationalRole;
-	private UserProfile userProfile;
-	private String company;
-	private String department;
-	private String title;
 	private boolean advancedView;
 
 	private boolean metadataUnitView;
 
-	private Set<DataGridUserBookmark> bookmarks;
-	private Set<DataGridUserFavorite> favorites;
 	private static final long serialVersionUID = -500578459147421831L;
 
 	public DataGridUser() {
@@ -56,61 +46,7 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 	}
 
 	public String getDisplayName() {
-		if (firstName != null && !firstName.isEmpty()) {
-			return firstName;
-		}
-
 		return username;
-	}
-
-	/**
-	 * Gets the user bookmarks sorted in ascending order
-	 *
-	 * @return the userBookmarks
-	 */
-	public List<DataGridUserBookmark> getBookmarksSorted() {
-		List<DataGridUserBookmark> bookmarksSorted = new ArrayList<DataGridUserBookmark>(bookmarks);
-		Collections.sort(bookmarksSorted);
-		return bookmarksSorted;
-	}
-
-	/**
-	 * @return the userBookmarks
-	 */
-	public Set<DataGridUserBookmark> getBookmarks() {
-		return bookmarks;
-	}
-
-	/**
-	 * @param userBookmarks the userBookmarks to set
-	 */
-	public void setUserBookmarks(Set<DataGridUserBookmark> userBookmarks) {
-		bookmarks = userBookmarks;
-	}
-
-	/**
-	 * Gets the user favorites sorted in ascending order
-	 *
-	 * @return the userFavorites
-	 */
-	public List<DataGridUserFavorite> getFavoritesSorted() {
-		List<DataGridUserFavorite> favoritesSorted = new ArrayList<DataGridUserFavorite>(favorites);
-		Collections.sort(favoritesSorted);
-		return favoritesSorted;
-	}
-
-	/**
-	 * @return the userFavorites
-	 */
-	public Set<DataGridUserFavorite> getFavorites() {
-		return favorites;
-	}
-
-	/**
-	 * @param userFavorites the userFavorites to set
-	 */
-	public void setUserFavorites(Set<DataGridUserFavorite> userFavorites) {
-		favorites = userFavorites;
 	}
 
 	/**
@@ -212,62 +148,6 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 	}
 
 	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
-
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
-
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the userProfile
-	 */
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	/**
-	 * @param userProfile the userProfile to set
-	 */
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
-	}
-
-	/**
 	 * @return the locale
 	 */
 	public String getLocale() {
@@ -287,62 +167,6 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 
 	public void setUserType(String userType) {
 		this.userType = userType;
-	}
-
-	/**
-	 * @return the organizationalRole
-	 */
-	public String getOrganizationalRole() {
-		return organizationalRole;
-	}
-
-	/**
-	 * @param organizationalRole the organizationalRole to set
-	 */
-	public void setOrganizationalRole(String organizationalRole) {
-		this.organizationalRole = organizationalRole;
-	}
-
-	/**
-	 * @return the company
-	 */
-	public String getCompany() {
-		return company;
-	}
-
-	/**
-	 * @return the department
-	 */
-	public String getDepartment() {
-		return department;
-	}
-
-	/**
-	 * @return the title
-	 */
-	public String getTitle() {
-		return title;
-	}
-
-	/**
-	 * @param company the company to set
-	 */
-	public void setCompany(String company) {
-		this.company = company;
-	}
-
-	/**
-	 * @param department the department to set
-	 */
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	@Override
@@ -404,15 +228,6 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 			builder.append("additionalInfo=").append(additionalInfo).append(", ");
 		}
 		builder.append("enabled=").append(enabled).append(", ");
-		if (firstName != null) {
-			builder.append("firstName=").append(firstName).append(", ");
-		}
-		if (lastName != null) {
-			builder.append("lastName=").append(lastName).append(", ");
-		}
-		if (email != null) {
-			builder.append("email=").append(email).append(", ");
-		}
 		if (locale != null) {
 			builder.append("locale=").append(locale).append(", ");
 		}
@@ -420,32 +235,8 @@ public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 		if (userType != null) {
 			builder.append("userType=").append(userType).append(", ");
 		}
-		if (organizationalRole != null) {
-			builder.append("organizationalRole=").append(organizationalRole).append(", ");
-		}
-		if (userProfile != null) {
-			builder.append("userProfile=").append(userProfile).append(", ");
-		}
-		if (company != null) {
-			builder.append("company=").append(company).append(", ");
-		}
-		if (department != null) {
-			builder.append("department=").append(department).append(", ");
-		}
-		if (title != null) {
-			builder.append("title=").append(title).append(", ");
-		}
 		builder.append("advancedView=").append(advancedView).append(", ");
-		if (bookmarks != null) {
-			builder.append("bookmarks=").append(bookmarks).append(", ");
-		}
 		builder.append("metadataUnitView=").append(metadataUnitView).append(", ");
-		if (bookmarks != null) {
-			builder.append("bookmarks=").append(bookmarks).append(", ");
-		}
-		if (favorites != null) {
-			builder.append("favorites=").append(favorites);
-		}
 		builder.append("]");
 		return builder.toString();
 	}

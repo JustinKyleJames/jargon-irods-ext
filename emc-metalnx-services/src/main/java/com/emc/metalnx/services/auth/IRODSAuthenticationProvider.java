@@ -215,8 +215,6 @@ public class IRODSAuthenticationProvider implements AuthenticationProviderServic
 					user.setAdditionalInfo(irodsUser.getZone());
 					user.setDataGridId(Long.parseLong(irodsUser.getId()));
 					user.setEnabled(true);
-					user.setFirstName("");
-					user.setLastName("");
 					if (irodsUser.getUserType().equals(UserTypeEnum.RODS_ADMIN)) {
 						logger.debug("setting user type admin:{}", irodsUser.getUserType());
 						user.setUserType(UserTypeEnum.RODS_ADMIN.getTextValue());
