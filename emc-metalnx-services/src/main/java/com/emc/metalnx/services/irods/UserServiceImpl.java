@@ -121,7 +121,6 @@ public class UserServiceImpl implements UserService {
 
 		user.setDataGridId(Long.parseLong(irodsUser.getId()));
 		user.setEnabled(true);
-		userDao.save(user);
 
 		logger.info("setting password if provided (may be a PAM user!)");
 		if (password == null || password.isEmpty()) {

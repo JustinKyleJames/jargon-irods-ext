@@ -9,91 +9,41 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
-import org.hibernate.envers.NotAudited;
-
-@Entity
-// @Audited
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "additional_info" }))
 public class DataGridUser implements Serializable, Comparable<DataGridUser> {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotAudited
 	private Long id;
 
-	@Column(name = "data_grid_id", unique = true, nullable = false)
 	private long dataGridId;
 
-	@Column(name = "username", nullable = false, length = 60, unique = true)
 	private String username;
 
 	private String password;
 
-	@Column(name = "additional_info", nullable = true, length = 128)
 	private String additionalInfo;
 
-	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
 
-	@Column(name = "first_name")
 	private String firstName;
-
-	@Column(name = "last_name")
 	private String lastName;
-
-	@Column(name = "email", nullable = true)
 	private String email;
-
-	@Column(name = "locale")
 	private String locale = "en";
 
-	@Column(name = "forceFileOverwriting", nullable = false)
 	private boolean forceFileOverwriting = false;
 
-	@Column(name = "user_type", nullable = false, length = 60)
 	private String userType;
 
-	@Column(name = "organizational_role", nullable = true, length = 60)
 	private String organizationalRole;
-
-	@ManyToOne(fetch = FetchType.EAGER, optional = true)
-	@JoinColumn(name = "userProfile_id", nullable = true, updatable = true)
 	private UserProfile userProfile;
-
-	@Column(name = "user_company", nullable = true, length = 60)
 	private String company;
-
-	@Column(name = "user_department", nullable = true, length = 60)
 	private String department;
-
-	@Column(name = "user_title", nullable = true, length = 60)
 	private String title;
-
-	@Column(name = "advanced_view", nullable = false)
 	private boolean advancedView;
 
-	@Column(name = "metadata_unit_view", nullable = false)
 	private boolean metadataUnitView;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH, orphanRemoval = true)
 	private Set<DataGridUserBookmark> bookmarks;
-
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.DETACH, orphanRemoval = true)
 	private Set<DataGridUserFavorite> favorites;
-
 	private static final long serialVersionUID = -500578459147421831L;
 
 	public DataGridUser() {
