@@ -368,7 +368,7 @@ public class ConfigServiceImpl implements ConfigService {
 			builder.append("irodsZone=").append(irodsZone).append(", ");
 		}
 		if (irodsAdminUser != null) {
-			builder.append("irodsJobUser=").append(irodsAdminUser).append(", ");
+			builder.append("irodsAdminUser=").append(irodsAdminUser).append(", ");
 		}
 		if (irodsAuthScheme != null) {
 			builder.append("irodsAuthScheme=").append(irodsAuthScheme).append(", ");
@@ -439,13 +439,13 @@ public class ConfigServiceImpl implements ConfigService {
 	}
 
 	@Override
-	public void setIrodsJobUser(String irodsJobUser) {
-		this.irodsAdminUser = irodsJobUser;
+	public void setIrodsAdminUser(String irodsAdminUser) {
+		this.irodsAdminUser = irodsAdminUser;
 	}
 
 	@Override
-	public void setIrodsJobPassword(String irodsJobPassword) {
-		this.irodsAdminPassword = irodsJobPassword;
+	public void setIrodsAdminPassword(String irodsAdminPassword) {
+		this.irodsAdminPassword = irodsAdminPassword;
 	}
 
 	@Override

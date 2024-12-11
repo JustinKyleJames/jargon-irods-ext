@@ -79,7 +79,7 @@ public interface ConfigService {
 	String getIrodsZone();
 
 	/**
-	 * Find the jobs username.
+	 * Find the admin username.
 	 *
 	 * @return String representing the username used for synchronizing Metalnx and
 	 *         iRODS.
@@ -87,7 +87,7 @@ public interface ConfigService {
 	String getIrodsAdminUser();
 
 	/**
-	 * Find the jobs password.
+	 * Find the admin password.
 	 *
 	 * @return String representing the password used for synchronizing Metalnx and
 	 *         iRODS.
@@ -156,8 +156,8 @@ public interface ConfigService {
 	void setDownloadLimit(long downloadLimit);
 	void setPopulateMsiEnabled(boolean populateMsiEnabled);
 	void setIrodsAuthScheme(String irodsAuthScheme);
-	void setIrodsJobPassword(String irodsJobPassword);
-	void setIrodsJobUser(String irodsJobUser);
+	void setIrodsAdminPassword(String irodsAdminPassword);
+	void setIrodsAdminUser(String irodsAdminUser);
 	void setIrodsZone(String irodsZone);
 	void setIrodsPort(String irodsPort);
 	void setIrodsHost(String irodsHost);
