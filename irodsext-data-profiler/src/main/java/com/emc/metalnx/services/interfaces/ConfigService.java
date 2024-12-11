@@ -84,7 +84,7 @@ public interface ConfigService {
 	 * @return String representing the username used for synchronizing Metalnx and
 	 *         iRODS.
 	 */
-	String getIrodsJobUser();
+	String getIrodsAdminUser();
 
 	/**
 	 * Find the jobs password.
@@ -92,7 +92,7 @@ public interface ConfigService {
 	 * @return String representing the password used for synchronizing Metalnx and
 	 *         iRODS.
 	 */
-	String getIrodsJobPassword();
+	String getIrodsAdminPassword();
 
 	/**
 	 * Find the authentication scheme used for authenticating against iRODS.
