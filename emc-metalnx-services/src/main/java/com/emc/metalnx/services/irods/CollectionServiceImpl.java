@@ -262,6 +262,15 @@ public class CollectionServiceImpl implements CollectionService {
 
 			if (filePermissionEnum != null) {
 				permissionType = filePermissionEnum.toString().toLowerCase();
+				
+				// FilePermissionEnum has WRITE and READ instead of MODIFY_OBJECT and READ_OBJECT
+				// so translate these two to the new values
+				if ("write".equals(permissionType)) {
+					permissionType = "modify_object";
+				}
+				else if ("read".equals(permissionType)) {
+					permissionType = "read_object";
+				}
 			}
 
 		} catch (FileNotFoundException e) {
@@ -600,13 +609,13 @@ public class CollectionServiceImpl implements CollectionService {
 	@Override
 	public Set<String> listReadPermissionsForPathAndUser(String path, String userName)
 			throws DataGridConnectionRefusedException {
-		return listCollectionsWithPermissionsForUser(path, userName, FilePermissionEnum.READ);
+		return listCollectionsWithPermissionsForUser(path, userName, FilePermissionEnum.READ_OBJECT);
 	}
 
 	@Override
 	public Set<String> listWritePermissionsForPathAndUser(String path, String userName)
 			throws DataGridConnectionRefusedException {
-		return listCollectionsWithPermissionsForUser(path, userName, FilePermissionEnum.WRITE);
+		return listCollectionsWithPermissionsForUser(path, userName, FilePermissionEnum.MODIFY_OBJECT);
 	}
 
 	@Override
@@ -618,13 +627,13 @@ public class CollectionServiceImpl implements CollectionService {
 	@Override
 	public Set<String> listReadPermissionsForPathAndGroup(String path, String groupName)
 			throws DataGridConnectionRefusedException {
-		return listCollectionsWithPermissionsForGroup(path, groupName, FilePermissionEnum.READ);
+		return listCollectionsWithPermissionsForGroup(path, groupName, FilePermissionEnum.READ_OBJECT);
 	}
 
 	@Override
 	public Set<String> listWritePermissionsForPathAndGroup(String path, String groupName)
 			throws DataGridConnectionRefusedException {
-		return listCollectionsWithPermissionsForGroup(path, groupName, FilePermissionEnum.WRITE);
+		return listCollectionsWithPermissionsForGroup(path, groupName, FilePermissionEnum.MODIFY_OBJECT);
 	}
 
 	@Override
