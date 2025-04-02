@@ -3,7 +3,7 @@ package com.emc.metalnx.services.irods.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
 
 //@XmlRootElement(name = "MyResult")
 public class MetadataAttribForm {

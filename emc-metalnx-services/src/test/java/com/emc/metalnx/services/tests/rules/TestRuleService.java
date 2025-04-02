@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.irods.jargon.core.exception.JargonException;
 import org.irods.jargon.core.exception.OperationNotSupportedByThisServerException;

@@ -9,7 +9,7 @@
     <xjc:simple />
     <xjc:serializable uid="-1" />
     <jaxb:javaType name="java.util.Calendar" xmlType="xs:dateTime"
-      parseMethod="javax.xml.bind.DatatypeConverter.parseDateTime"
-      printMethod="javax.xml.bind.DatatypeConverter.printDateTime" />
+      parseMethod="jakarta.xml.bind.DatatypeConverter.parseDateTime"
+      printMethod="jakarta.xml.bind.DatatypeConverter.printDateTime" />
   </jaxb:globalBindings>
 </jaxb:bindings>

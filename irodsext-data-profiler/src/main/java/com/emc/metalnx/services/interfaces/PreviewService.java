@@ -1,6 +1,6 @@
 package com.emc.metalnx.services.interfaces;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 public interface PreviewService {
 

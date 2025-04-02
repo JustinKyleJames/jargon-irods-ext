@@ -6,7 +6,7 @@ package com.emc.metalnx.services.irods;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FilenameUtils;
 import org.irods.jargon.core.exception.DataNotFoundException;
